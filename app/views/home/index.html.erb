@@ -19,8 +19,12 @@
     <%= link_to 'Submit a photo', home_no_submit_path %> 
   <% end %>
 
-  
 
+  
+  <% @submissions.each do |submission| %>
+    <p><%= submission.description %></p>
+  <% end %>
+  
 
 
 
