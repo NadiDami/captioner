@@ -1,0 +1,10 @@
+<h1>Welcome to Captioner</h1>
+<p>it friggin' rules a lot</p>
+ <img src="assets/spinner.gif"> 
+ <% if user_signed_in? %>
+  <p><%= "Hi, #{current_user.email}" %></p>
+ <% end %>
+<ul>
+    <li><%= link_to 'Create account', new_user_registration_path %></li>
+    <li><%= link_to 'Sign in', new_user_session_path %></li>
+</ul>
