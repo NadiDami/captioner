@@ -1,0 +1,9 @@
+<p>Submit new photo</p>
+
+<%= form_for @submission do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit 'Save description' %>
+
+<% end %>
