@@ -1,6 +1,9 @@
 <p>Submit new photo</p>
 
-<%= form_for @submission do |f| %>
+<%= form_for @submission, url: submissions_path, html: { multipart: true}  do |f| %>
+  <%= f.label :photo %>
+  <%= f.file_field :photo %>
+
   <%= f.label :description %>
   <%= f.text_field :description %>
 
