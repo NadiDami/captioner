@@ -1,6 +1,51 @@
 class Submission < ActiveRecord::Base
-
-    has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }
+    has_attached_file :photo,
+                  processors: [:polarize],
+                  styles: {
+                    polarized: {
+                      format: 'png',
+                      is_polarized: true
+                    }
+                  } 
 
     belongs_to :user
+end
+
+
+module Paperclip
+  class Polarize < Processor
+    def initialize file, options = {}, attachment = nil
+      super
+      @file           = file
+      @attachment     = attachment
+      @is_polarized   = options[:is_polarized]
+      @current_format = File.extname(@file.path) 
+      @format         = options[:format]
+      @basename       = File.basename(@file.path, @current_format)
+    end
+
+    def make
+      temp_file = Tempfile.new([@basename, @format].compact.join("."))
+      temp_file.binmode
+
+      if @is_polarized
+
+        run_string =  "convert #{fromfile} -thumbnail 300x400  -bordercolor white -background white  +polaroid  #{tofile(temp_file)}"    
+        
+        # raise run_string
+        Paperclip.run(run_string)
+      end
+  
+      temp_file
+    end
+
+    def fromfile
+      File.expand_path(@file.path)
+    end
+
+    def tofile(destination)
+
+      File.expand_path(destination.path)
+    end
+  end
 end
