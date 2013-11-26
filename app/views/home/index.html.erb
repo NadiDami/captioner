@@ -14,17 +14,16 @@
   <% if user_signed_in? %>
       <%= link_to 'Submit a photo', new_submission_path %>
   <% else %>
-
       <!-- <a href="#" onclick="warnPhoto()">Submit a photo</a> -->
     <%= link_to 'Submit a photo', home_no_submit_path %> 
   <% end %>
 
+  <h2>The submissions</h2>
+
 
   
   <% @submissions.each do |submission| %>
-   
-    <%= image_tag submission.photo.url(:medium), class: 'uploaded-pic' %>
-
+    <%= image_tag submission.photo.url(:polarized), class: 'uploaded-pic' %>
     <p><%= submission.description %> Submitted by <%= submission.user.email if submission.user %></p>
   <% end %>
   
