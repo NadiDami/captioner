@@ -22,7 +22,10 @@
 
   
   <% @submissions.each do |submission| %>
-    <p><%= submission.description %></p>
+   
+    <%= image_tag submission.photo.url(:medium) %>
+
+    <p><%= submission.description %> Submitted by <%= submission.user.email if submission.user %></p>
   <% end %>
   
 
