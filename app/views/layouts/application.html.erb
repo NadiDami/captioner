@@ -7,12 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= nav_bar fixed: :top, brand: "Captioner"  %>
-  <% menu_group pull: :right do %>
+<%= nav_bar fixed: :top, brand: "Captioner - Let the world caption your photos "  %>
+  <% menu_group do %>
     <% if user_signed_in? %>
       <%= menu_item 'Logout', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= menu_item 'Create account', new_user_registration_path %>
+        <%= menu_item 'Sign in', new_user_session_path %>
+      <% end %>
     <% end %>
-  <% end %>
+
 <section class="wrapper">
   <%= bootstrap_flash %>
   <%= yield %>

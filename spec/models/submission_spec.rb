@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Submission do
   let(:submission) {Submission.new photo: Rails.root.join("app/assets/images/dogs.png").open, description: "Dogs"}
   it { should belong_to(:user) }
+  it { should have_and_belong_to_many :tags }
+  
 
   context 'it is valid when' do
     it 'has a description of at least 3 characters and an image attached' do
