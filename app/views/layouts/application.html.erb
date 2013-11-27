@@ -7,10 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= nav_bar fixed: :top, brand: "Captioner"  %>
+  <% menu_group pull: :right do %>
+    <% if user_signed_in? %>
+      <%= menu_item 'Logout', destroy_user_session_path, :method => :delete %>
+    <% end %>
+  <% end %>
+<section class="wrapper">
+  <%= bootstrap_flash %>
+  <%= yield %>
+</section>
 
-<%= notice %>
-<%= alert %>
-<%= yield %>
+<footer>
+  <p>&copy; Captioner 2013</p>
+</footer>
 
 </body>
 </html>

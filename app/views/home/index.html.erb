@@ -1,39 +1,34 @@
-<h1>Welcome to Captioner</h1>
-<p>it friggin' rules a lot</p>
-<img src="assets/spinner.gif"> 
-   <% if user_signed_in? %>
-    <p><%= "Hi, #{current_user.email}" %></p>
-    <ul><li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li></ul>
-    <% else %>
-    <ul>
-      <li><%= link_to 'Create account', new_user_registration_path %></li>
-      <li><%= link_to 'Sign in', new_user_session_path %></li>
-    </ul>
-   <% end %>
+<div class='row'>
+  <div class='col-lg-3'>
+    <h4>Let the world caption your photos</h4>
+       <% if user_signed_in? %>
+        <p><%= "Hi, #{current_user.email}" %></p>
+        <ul><li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li></ul>
+        <% else %>
+        <ul>
+          <li><%= link_to 'Create account', new_user_registration_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        </ul>
+       <% end %>  
+      <% if user_signed_in? %>
+          <%= link_to 'Submit a photo', new_submission_path %>
+      <% else %>
 
-  <% if user_signed_in? %>
-      <%= link_to 'Submit a photo', new_submission_path %>
-  <% else %>
+          <!-- <a href="#" onclick="warnPhoto()">Submit a photo</a> -->
+        <%= link_to 'Submit a photo', home_no_submit_path %> 
+      <% end %>
 
-      <!-- <a href="#" onclick="warnPhoto()">Submit a photo</a> -->
-    <%= link_to 'Submit a photo', home_no_submit_path %> 
-  <% end %>
+  </div>
 
 
   
   <% @submissions.each do |submission| %>
-   
-    <%= image_tag submission.photo.url(:medium), class: 'uploaded-pic' %>
 
+   <div class='col-md-3 pic-container'>
+    <%= image_tag submission.photo.url(:medium), class: 'uploaded-pic' %>
     <p><%= submission.description %> Submitted by <%= submission.user.email if submission.user %></p>
+  </div>
+
   <% end %>
   
 
-
-
-
-  <script>
-    var warnPhoto = function(){
-      //set the class of the id error message
-    }
-  </script>
