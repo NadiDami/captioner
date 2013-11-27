@@ -35,6 +35,5 @@ Then(/^the "(.*?)" tag of CSS "(.*?)" should not be "(.*?)"$/) do |tag, css, tex
 end
 
 
-
     # pic = page.find 'img.uploaded-pic'
     # expect(pic['alt']).not_to eq 'Missing'

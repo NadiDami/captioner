@@ -20,11 +20,19 @@ Feature:  To allow someone else to caption a photo
                And I click "Submit a photo"
                And I fill in "Description" with "fuck off delete unicorn"
                Then I attach file "cats.jpg"
-               And I press "Save description"
+               And I press "Save photo"
                Then I should see "fuck off delete unicorn"
                And I should see "Submitted by ecomba@makers.com"
                And the "alt" tag of CSS "img.uploaded-pic" should not be "missing"
 
+          Scenario: Adding tags
+               Given "Enrique" signs up
+               And I click "Submit a photo"
+               And I fill in "Description" with "fuck off delete unicorn"
+               Then I attach file "cats.jpg"
+               And I fill in "Tags" with "cute animals"
+               And I press "Save photo"
+               Then I should see "cute, animals"
                
                
 

@@ -6,9 +6,13 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    @submission = current_user.submissions.build params[:submission].permit(:description, :photo)
-    @submission.save
-    redirect_to root_path
+    @submission = current_user.submissions.build params[:submission].permit(:description, :photo, :tag_names)
+    if @submission.save
+      flash[:notice] = 'Photo added'
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
 end
