@@ -25,7 +25,7 @@ Given(/^I am not logged in$/) do
 end
 
 Then(/^I attach file "(.*?)"$/) do |file|
-  attach_file 'Photo', Rails.root.join("app/assets/images/#{file}")
+  attach_file 'Photo', Rails.root.join("spec/_assets/#{file}")
 end
 
 
