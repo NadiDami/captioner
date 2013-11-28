@@ -23,8 +23,9 @@
 
   
   <% @submissions.each do |submission| %>
-    <%= image_tag submission.photo.url(:polarized), class: 'uploaded-pic' %>
-    <p><%= submission.description %> Submitted by <%= submission.user.email if submission.user %></p>
+    
+    <p><%= link_to submission.description, submission_path(submission) %> Submitted by <%= submission.user.email if submission.user %></p>
+    <%= image_tag submission.photo.url(:medium), class: 'uploaded-pic' %>
   <% end %>
   
 

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126112440) do
+ActiveRecord::Schema.define(version: 20131128190133) do
+
+  create_table "captions", force: true do |t|
+    t.string   "text"
+    t.integer  "submission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "caption_image_rul"
+    t.string   "captioned_photo_file_name"
+    t.string   "captioned_photo_content_type"
+    t.integer  "captioned_photo_file_size"
+    t.datetime "captioned_photo_updated_at"
+  end
+
+  add_index "captions", ["submission_id"], name: "index_captions_on_submission_id"
 
   create_table "submissions", force: true do |t|
     t.text     "description"

@@ -7,7 +7,9 @@ Captioner::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  resources :submissions 
+  resources :submissions do
+    resources :captions
+  end
 
   get 'home/no_submit'
   
