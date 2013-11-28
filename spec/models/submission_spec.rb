@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Submission do
   let(:submission) {Submission.new photo: Rails.root.join("spec/_assets/dogs.png").open, description: "Dogs"}
-  it { should belong_to(:user) }
+  it { should belong_to :user }
   it { should have_and_belong_to_many :tags }
   
 

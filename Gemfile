@@ -55,6 +55,9 @@ group :development, :test do
 
     # Shoulda matchers for Rspec (makes it easier to write tests)
     gem 'shoulda-matchers'
+
+    gem "factory_girl_rails", "~> 4.0"
+    
 end
 
 
