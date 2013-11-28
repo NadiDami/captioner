@@ -25,6 +25,27 @@ Feature:  To allow someone else to caption a photo
                And I should see "Submitted by ecomba@makers.com"
                And the "alt" tag of CSS "img.uploaded-pic" should not be "missing"
 
-               
-               
+          Scenario: View a submission
+               Given "Enrique" signs up
+               And I click "Submit a photo"
+               And I fill in "Description" with "fuck off delete unicorn"
+               Then I attach file "cats.jpg"
+               And I press "Save description"
+               Then I should see "fuck off delete unicorn"
+               Then I click "fuck off delete unicorn"
+               And I should see "This is : fuck off delete unicorn" 
+               And the "alt" tag of CSS "img.uploaded-pic" should not be "missing"
+
+          Scenario: Add a caption to a submission
+               Given "Enrique" signs up
+               And I click "Submit a photo"
+               And I fill in "Description" with "fuck off delete unicorn"
+               Then I attach file "cats.jpg"
+               And I press "Save description"
+               Then I click "fuck off delete unicorn"
+               And I fill in "Enter a caption" with "what a funky caption"
+               And I press "Add caption"
+               Then I should see "what a funky caption"
+
+
 
