@@ -1,4 +1,5 @@
 Captioner::Application.routes.draw do
+  get "tags/show"
   devise_for :users
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,6 +9,7 @@ Captioner::Application.routes.draw do
   root 'home#index'
 
   resources :submissions 
+  resources :tags
 
   get 'home/no_submit'
   
