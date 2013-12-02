@@ -1,7 +1,7 @@
 class Submission < ActiveRecord::Base
     # before_post_process :before_post_process
 
-    has_attached_file :photo, styles: { medium: "400x400>"}
+    has_attached_file :photo, styles: { medium: "200x200^"}
 
 
     belongs_to :user
