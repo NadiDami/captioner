@@ -1,6 +1,6 @@
 <p>This is : <%= @submission.description%></p>
 
-<%= image_tag @submission.photo.url(:medium), class: 'uploaded-pic' %>
+<%= image_tag @submission.photo.url(:polarized), class: 'uploaded-pic' %>
 
 <%= form_for [@submission, Caption.new] do |f| %>
   <%= f.label :text, 'Enter a caption' %>
