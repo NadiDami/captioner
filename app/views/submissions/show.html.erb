@@ -9,8 +9,7 @@
 <% end %>
 
 <% @submission.captions.each do |caption| %>
-  <p><%= caption.text%></p>
-  <%= image_tag caption.captioned_photo.url(:polarized), class: 'captioned_photo-pic' %>
+  <%= image_tag caption.captioned_photo.url(:comic), class: 'captioned_photo-pic' %>
 
 <% end %>
 

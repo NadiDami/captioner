@@ -25,7 +25,7 @@
   <% @submissions.each do |submission| %>
     
     <p><%= link_to submission.description, submission_path(submission) %> Submitted by <%= submission.user.email if submission.user %></p>
-    <%= image_tag submission.photo.url(:medium), class: 'uploaded-pic' %>
+    <%= link_to (image_tag submission.photo.url(:medium), class: 'uploaded-pic'), submission_path(submission) %>
   <% end %>
   
 
