@@ -7,10 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= nav_bar fixed: :top, brand: "Captioner - Let the world caption your photos " do %>
+  <%= menu_group pull: :right do %>
+    <% if user_signed_in? %>
+      <%= menu_item 'Logout', destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= menu_item 'Create account', new_user_registration_path %>
+      <%= menu_item 'Sign in', new_user_session_path %>
+    <% end %>
+  <% end %>
+<% end %>
 
-<%= notice %>
-<%= alert %>
-<%= yield %>
+<section class="wrapper">
+  <%= bootstrap_flash %>
+  <%= yield %>
+</section>
+
+<footer>
+  <p>&copy; Captioner 2013</p>
+</footer>
 
 </body>
 </html>

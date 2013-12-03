@@ -16,25 +16,11 @@ Feature:  To allow someone else to caption a photo
                Then I should see "Submit new photo"
 
           Scenario: Submit a photo
-               Given "Enrique" signs up
-               And I click "Submit a photo"
-               And I fill in "Description" with "fuck off delete unicorn"
-               Then I attach file "cats.jpg"
-               And I press "Save description"
+               Given "Enrique" signs up and submits a photo
                Then I should see "fuck off delete unicorn"
                And I should see "Submitted by ecomba@makers.com"
                And the "alt" tag of CSS "img.uploaded-pic" should not be "missing"
 
-          Scenario: View a submission
-               Given "Enrique" signs up
-               And I click "Submit a photo"
-               And I fill in "Description" with "fuck off delete unicorn"
-               Then I attach file "cats.jpg"
-               And I press "Save description"
-               Then I should see "fuck off delete unicorn"
-               Then I click "fuck off delete unicorn"
-               And I should see "This is : fuck off delete unicorn" 
-               And the "alt" tag of CSS "img.uploaded-pic" should not be "missing"
 
           Scenario: Add a caption to a submission
                Given "Enrique" signs up
@@ -47,5 +33,17 @@ Feature:  To allow someone else to caption a photo
                And I press "Add caption"
                Then I should see "what a funky caption"
 
+
+
+          Scenario: Adding tags
+               Given "Enrique" signs up and submits a photo with tags
+               Then I should see "cute, animals"
+
+          Scenario: Filtering by tags
+               Given "Enrique" signs up and submits a photo with tags
+               And "Enrique" submits a second photo with tags
+               And I click "dogs"
+               Then I should see "dogs"
+               And I should not see "cute, animals"
 
 

@@ -36,6 +36,10 @@ end
 
 gem "paperclip", "~> 3.0"
 
+gem 'twitter-bootstrap-rails',
+    github: 'seyhunak/twitter-bootstrap-rails',
+    branch: 'bootstrap3'
+
 group :development, :test do
     #RRpec for tests
     gem 'rspec-rails'
@@ -51,6 +55,9 @@ group :development, :test do
 
     # Shoulda matchers for Rspec (makes it easier to write tests)
     gem 'shoulda-matchers'
+
+    gem "factory_girl_rails", "~> 4.0"
+    
 end
 
 
