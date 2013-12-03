@@ -27,11 +27,11 @@ Feature:  To allow someone else to caption a photo
                And I click "Submit a photo"
                And I fill in "Description" with "fuck off delete unicorn"
                Then I attach file "cats.jpg"
-               And I press "Save description"
+               And I press "Save photo"
                Then I click "fuck off delete unicorn"
                And I fill in "Enter a caption" with "what a funky caption"
                And I press "Add caption"
-               Then I should see "what a funky caption"
+               And the "alt" tag of CSS "img.captioned_photo-pic" should be "what a funky caption"
 
 
 

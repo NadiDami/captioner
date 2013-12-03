@@ -32,6 +32,11 @@ Then(/^the "(.*?)" tag of CSS "(.*?)" should not be "(.*?)"$/) do |tag, css, tex
   expect(pic[tag]).not_to eq text
 end
 
+Then(/^the "(.*?)" tag of CSS "(.*?)" should be "(.*?)"$/) do |tag, css, text|
+  pic = page.find css
+  expect(pic[tag]).to eq text 
+end
+
 def create_a_user
   click_link 'Create account'
   fill_in :user_email, :with => 'ecomba@makers.com' 
