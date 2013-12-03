@@ -13,6 +13,7 @@ Captioner::Application.routes.draw do
     resources :captions
   end
   resources :tags
+  resources :charges
 
 
   get 'home/no_submit'

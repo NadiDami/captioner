@@ -36,6 +36,8 @@ end
 
 gem "paperclip", "~> 3.0"
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem 'twitter-bootstrap-rails',
     github: 'seyhunak/twitter-bootstrap-rails',
     branch: 'bootstrap3'
