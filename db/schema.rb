@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 20131128190133) do
 
   add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
 
+  create_table "submissions_tags", id: false, force: true do |t|
+    t.integer "submission_id", null: false
+    t.integer "tag_id",        null: false
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

@@ -1,0 +1,12 @@
+<h4><%= @tag.name %></h4>
+
+<div class='row'>
+  <% @tag.submissions.each do |submission| %>
+    <div class='col-md-3 pic-container'>
+      <%= image_tag submission.photo.url(:medium), class: 'uploaded-pic' %>
+      <p><%= submission.description %></p> 
+      <p>Submitted by <%= submission.user.email if submission.user %></p>
+      <p><%= tag_names(submission) %></p>
+    </div>
+  <% end %>
+</div>
