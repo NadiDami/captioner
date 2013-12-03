@@ -19,6 +19,7 @@
         <p><%= submission.description %></p> 
         <p>Submitted by <%= submission.user.email if submission.user %></p>
         <p><%= tag_names(submission) %></p>
+        <p><%= link_to 'Buy print', new_charge_path %></p>
       </div>
 
     <% end %>
