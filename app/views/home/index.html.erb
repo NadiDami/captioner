@@ -15,8 +15,8 @@
 
 
       <div class='col-md-3 pic-container'>
-         <%= link_to (image_tag submission.photo.url(:polarized), class: 'uploaded-pic'), submission_path(submission) %>
-        <p><%= submission.description %></p> 
+        <%= link_to (image_tag submission.photo.url(:polarized), class: 'uploaded-pic'), submission_path(submission) %>
+        <p><%= link_to  submission.description, submission_path(submission) %></p> 
         <p>Submitted by <%= submission.user.email if submission.user %></p>
         <p><%= tag_names(submission) %></p>
         <p><%= link_to 'Buy print', new_charge_path %></p>
