@@ -41,4 +41,4 @@ Technologies used in this app include:
 
 * Enable users to dynamically cyle through submitted captions 
 * Add a voting feature for the captions. The most popular caption will be displayed by default
-* Refactor code
+* Refactor code 
